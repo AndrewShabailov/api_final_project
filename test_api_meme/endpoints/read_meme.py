@@ -11,4 +11,3 @@ class ReadMeme(BaseMeme):
             f'{self.base_url}/meme', headers=self.headers
         )
         return self.response
-

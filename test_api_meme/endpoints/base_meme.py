@@ -1,5 +1,4 @@
 import allure
-import requests
 
 
 class BaseMeme:
@@ -14,7 +13,6 @@ class BaseMeme:
         if self.response is not None:
             return self.response.json()
         return None
-
 
     @allure.step('Check that status code is 200')
     def check_status_code_is_200(self):
