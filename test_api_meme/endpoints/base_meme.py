@@ -1,18 +1,20 @@
 import allure
+import requests
 
 
 class BaseMeme:
     base_url = 'http://memesapi.course.qa-practice.com'
-    headers = {'Content-Type': 'application/json'}
 
-    def __init__(self):
+    def __init__(self, token):
         self.response = None
+        self.headers = {'Authorization': token}
 
     @property
     def json(self):
         if self.response is not None:
             return self.response.json()
         return None
+
 
     @allure.step('Check that status code is 200')
     def check_status_code_is_200(self):
