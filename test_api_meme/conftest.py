@@ -33,7 +33,6 @@ def auth_token():
 def meme_factory(create_meme_endpoint, delete_meme_endpoint):
     created_meme_ids = []
 
-
     def _create_meme(custom_payload=payload):
         create_meme_endpoint.create_meme(payload=custom_payload)
         meme_id = create_meme_endpoint.json['id']
