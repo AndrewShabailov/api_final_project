@@ -6,7 +6,9 @@ class BaseMeme:
 
     def __init__(self, token):
         self.response = None
-        self.headers = {'Authorization': token}
+        self.headers = {
+            'Authorization': token
+        }
 
     @property
     def json(self):
