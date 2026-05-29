@@ -11,13 +11,16 @@ from endpoints.delete_meme import DeleteMeme
 def create_meme_endpoint(auth_token):
     return CreateMeme(auth_token)
 
+
 @pytest.fixture()
 def read_meme_endpoint(auth_token):
     return ReadMeme(auth_token)
 
+
 @pytest.fixture()
 def delete_meme_endpoint(auth_token):
     return DeleteMeme(auth_token)
+
 
 @pytest.fixture(scope="session")
 def auth_token():
@@ -29,6 +32,7 @@ def auth_token():
 @pytest.fixture()
 def meme_factory(create_meme_endpoint, delete_meme_endpoint):
     created_meme_ids = []
+
 
     def _create_meme(custom_payload=payload):
         create_meme_endpoint.create_meme(payload=custom_payload)
@@ -48,6 +52,7 @@ def start_end_testing():
     print('Start testing')
     yield
     print('Testing completed')
+
 
 @pytest.fixture()
 def before_after_testing():
