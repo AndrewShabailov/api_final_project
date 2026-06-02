@@ -19,3 +19,25 @@ payload = {
         "text_format": "uppercase bold impact-style meme font"
     }
 }
+
+upd_payload = {
+    "text": "My wife told me to stop impersonating a flamingo. I had to put my foot down.",
+    "url": "https://tenor.com/view/flamingo-funny-dance-animal-gif-25491840",
+    "tags": [
+        "meme",
+        "pun",
+        "funny",
+        "flamingo",
+        "humor",
+        "dad-joke"
+    ],
+    "info": {
+        "type": "gif",
+        "platform": "Tenor",
+        "context": "Used as a witty dad joke or pun about animals",
+        "visual_description":
+            "A bright pink flamingo standing on one leg and suddenly doing a goofy dance,"
+            " with text overlay explaining the classic pun.",
+        "text_format": "clean white sans-serif subtitle font"
+    }
+}
