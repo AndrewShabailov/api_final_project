@@ -27,6 +27,7 @@ def update_meme_endpoint(auth_token):
 def delete_meme_endpoint(auth_token):
     return DeleteMeme(auth_token)
 
+
 @pytest.fixture()
 def get_authorize_token_endpoint():
     return ReadMeme
