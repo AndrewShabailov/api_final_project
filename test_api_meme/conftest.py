@@ -4,6 +4,7 @@ from data.payloads import payload
 from endpoints.base_meme import BaseMeme
 from endpoints.create_meme import CreateMeme
 from endpoints.read_meme import ReadMeme
+from endpoints.update_meme import UpdateMeme
 from endpoints.delete_meme import DeleteMeme
 
 
@@ -18,8 +19,17 @@ def read_meme_endpoint(auth_token):
 
 
 @pytest.fixture()
+def update_meme_endpoint(auth_token):
+    return UpdateMeme(auth_token)
+
+
+@pytest.fixture()
 def delete_meme_endpoint(auth_token):
     return DeleteMeme(auth_token)
+
+@pytest.fixture()
+def get_authorize_token_endpoint():
+    return ReadMeme
 
 
 @pytest.fixture(scope="session")
@@ -33,8 +43,8 @@ def auth_token():
 def meme_factory(create_meme_endpoint, delete_meme_endpoint):
     created_meme_ids = []
 
-    def _create_meme(custom_payload=payload):
-        create_meme_endpoint.create_meme(payload=custom_payload)
+    def _create_meme(create_payload=payload):
+        create_meme_endpoint.create_meme(payload=create_payload)
         meme_id = create_meme_endpoint.json['id']
         created_meme_ids.append(meme_id)
         return meme_id
