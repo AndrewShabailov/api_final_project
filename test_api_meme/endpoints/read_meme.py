@@ -11,3 +11,8 @@ class ReadMeme(BaseMeme):
             f'{self.base_url}/meme/{meme_id}', headers=self.headers
         )
         return self.response
+
+    @allure.step('Check token endpoint directly')
+    def check_token_endpoint_directly(self, token):
+        self.response = requests.get(f'{self.base_url}/authorize/{token}')
+        return self.response

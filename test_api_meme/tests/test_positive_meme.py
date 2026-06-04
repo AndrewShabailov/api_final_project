@@ -1,5 +1,5 @@
 import pytest
-from data.payloads import payload, upd_payload, login_payload
+from data.positive_payloads import payload, upd_payload, login_payload
 
 
 @pytest.mark.positive

@@ -1,7 +1,7 @@
 import requests
 import allure
 from endpoints.base_meme import BaseMeme
-from data.payloads import login_payload
+from data.positive_payloads import login_payload
 
 
 class AuthMeme(BaseMeme):

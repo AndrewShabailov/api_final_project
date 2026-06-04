@@ -1,7 +1,6 @@
 import requests
 import allure
 from endpoints.base_meme import BaseMeme
-from data.payloads import login_payload
 
 
 class CreateMeme(BaseMeme):
