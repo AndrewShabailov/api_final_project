@@ -2,7 +2,6 @@ import pytest
 from data.payloads import payload, upd_payload, login_payload
 
 
-
 @pytest.mark.positive
 def test_get_all_memes(read_all_memes_endpoint):
     read_all_memes_endpoint.read_all_memes()
