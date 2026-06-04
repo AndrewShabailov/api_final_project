@@ -2,17 +2,18 @@ import pytest
 from data.payloads import payload, upd_payload, login_payload
 
 
+
 @pytest.mark.positive
-def test_get_all_memes(read_meme_endpoint):
-    read_meme_endpoint.read_all_meme()
-    read_meme_endpoint.check_status_code_is_200()
+def test_get_all_memes(read_all_memes_endpoint):
+    read_all_memes_endpoint.read_all_memes()
+    read_all_memes_endpoint.check_status_code_is_200()
 
 
 @pytest.mark.positive
-def test_get_specific_meme(read_meme_endpoint, meme_factory):
+def test_get_meme(read_meme_endpoint, meme_factory):
     meme_id = meme_factory()
 
-    read_meme_endpoint.read_specific_meme(meme_id)
+    read_meme_endpoint.read_meme(meme_id)
     read_meme_endpoint.check_status_code_is_200()
 
 

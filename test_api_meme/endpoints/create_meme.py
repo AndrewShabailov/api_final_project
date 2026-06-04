@@ -17,12 +17,3 @@ class CreateMeme(BaseMeme):
             attachment_type=allure.attachment_type.JSON
         )
         return self.response
-
-
-    def login(self, login_payload):
-        self.response = requests.post(
-            f'{self.base_url}/authorize', json=login_payload
-        )
-        print(self.response.json())
-        return self.response
-

@@ -1,4 +1,5 @@
 import allure
+import requests
 
 
 class BaseMeme:
@@ -20,3 +21,10 @@ class BaseMeme:
     def check_status_code_is_200(self):
         assert self.response.status_code == 200, \
             f'Expected status code 200, but got {self.response.status_code}'
+
+    @allure.step('Send GET request to validate token')
+    def check_token(self):
+        self.response = requests.get(
+            f'{self.base_url}/meme', headers=self.headers
+        )
+        return self.response

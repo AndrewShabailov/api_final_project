@@ -1,12 +1,13 @@
 import pytest
 import requests
 from data.payloads import payload
+from endpoints.auth_meme import AuthMeme
 from endpoints.base_meme import BaseMeme
 from endpoints.create_meme import CreateMeme
 from endpoints.read_meme import ReadMeme
+from endpoints.read_all_memes import ReadAllMemes
 from endpoints.update_meme import UpdateMeme
 from endpoints.delete_meme import DeleteMeme
-from endpoints.auth_meme import AuthMeme
 
 
 @pytest.fixture()
@@ -17,6 +18,11 @@ def auth_endpoint():
 @pytest.fixture()
 def create_meme_endpoint(auth_token):
     return CreateMeme(auth_token)
+
+
+@pytest.fixture()
+def read_all_memes_endpoint(auth_token):
+    return ReadAllMemes(auth_token)
 
 
 @pytest.fixture()
