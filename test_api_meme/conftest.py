@@ -1,6 +1,6 @@
 import pytest
 import requests
-from data.payloads import payload
+from data.positive_payloads import payload
 from endpoints.auth_meme import AuthMeme
 from endpoints.base_meme import BaseMeme
 from endpoints.create_meme import CreateMeme
