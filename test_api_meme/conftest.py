@@ -28,11 +28,6 @@ def delete_meme_endpoint(auth_token):
     return DeleteMeme(auth_token)
 
 
-@pytest.fixture()
-def get_authorize_token_endpoint():
-    return ReadMeme
-
-
 @pytest.fixture(scope="session")
 def auth_token():
     auth_payload = {"name": "Andrew"}
@@ -57,14 +52,14 @@ def meme_factory(create_meme_endpoint, delete_meme_endpoint):
         delete_meme_endpoint.delete_meme(meme_id)
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(autouse=True)
 def start_end_testing():
     print('Start testing')
     yield
     print('Testing completed')
 
 
-@pytest.fixture()
+@pytest.fixture(autouse=True)
 def before_after_testing():
     print('Before test')
     yield
