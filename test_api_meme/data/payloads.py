@@ -41,3 +41,7 @@ upd_payload = {
         "text_format": "clean white sans-serif subtitle font"
     }
 }
+
+login_payload = {
+    'name': 'Andrew Shabailov'
+}

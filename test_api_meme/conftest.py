@@ -6,6 +6,12 @@ from endpoints.create_meme import CreateMeme
 from endpoints.read_meme import ReadMeme
 from endpoints.update_meme import UpdateMeme
 from endpoints.delete_meme import DeleteMeme
+from endpoints.auth_meme import AuthMeme
+
+
+@pytest.fixture()
+def auth_endpoint():
+    return AuthMeme(token=None)
 
 
 @pytest.fixture()
