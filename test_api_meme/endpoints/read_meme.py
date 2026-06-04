@@ -5,17 +5,14 @@ from endpoints.base_meme import BaseMeme
 
 class ReadMeme(BaseMeme):
 
-    @allure.step('Send GET request for reading all memes')
-    def read_meme(self):
+    @allure.step('Send GET request for reading special meme')
+    def read_meme(self, meme_id):
         self.response = requests.get(
-            f'{self.base_url}/meme', headers=self.headers
+            f'{self.base_url}/meme/{meme_id}', headers=self.headers
         )
         return self.response
 
-    @allure.step('Send GET request for checking token is alive')
-    def read_token_is_alive(self):
-        auth_payload = {"name": "Andrew"}
-        requests.post(
-            f'{BaseMeme.base_url}/authorize', json=auth_payload
-        ).json()
+    @allure.step('Check token endpoint directly')
+    def check_token_endpoint_directly(self, token):
+        self.response = requests.get(f'{self.base_url}/authorize/{token}')
         return self.response

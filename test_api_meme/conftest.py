@@ -1,16 +1,28 @@
 import pytest
 import requests
-from data.payloads import payload
+from data.positive_payloads import payload
+from endpoints.auth_meme import AuthMeme
 from endpoints.base_meme import BaseMeme
 from endpoints.create_meme import CreateMeme
 from endpoints.read_meme import ReadMeme
+from endpoints.read_all_memes import ReadAllMemes
 from endpoints.update_meme import UpdateMeme
 from endpoints.delete_meme import DeleteMeme
 
 
 @pytest.fixture()
+def auth_endpoint():
+    return AuthMeme(token=None)
+
+
+@pytest.fixture()
 def create_meme_endpoint(auth_token):
     return CreateMeme(auth_token)
+
+
+@pytest.fixture()
+def read_all_memes_endpoint(auth_token):
+    return ReadAllMemes(auth_token)
 
 
 @pytest.fixture()
@@ -26,11 +38,6 @@ def update_meme_endpoint(auth_token):
 @pytest.fixture()
 def delete_meme_endpoint(auth_token):
     return DeleteMeme(auth_token)
-
-
-@pytest.fixture()
-def get_authorize_token_endpoint():
-    return ReadMeme
 
 
 @pytest.fixture(scope="session")
@@ -57,14 +64,14 @@ def meme_factory(create_meme_endpoint, delete_meme_endpoint):
         delete_meme_endpoint.delete_meme(meme_id)
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(autouse=True)
 def start_end_testing():
     print('Start testing')
     yield
     print('Testing completed')
 
 
-@pytest.fixture()
+@pytest.fixture(autouse=True)
 def before_after_testing():
     print('Before test')
     yield

@@ -7,8 +7,11 @@ class UpdateMeme(BaseMeme):
 
     @allure.step('Send PUT request for updating meme')
     def update_meme(self, payload, meme_id):
+        full_payload = payload.copy()
+        full_payload['id'] = int(meme_id)
+
         self.response = requests.put(
-            f'{self.base_url}/meme/{meme_id}', json=payload, headers=self.headers
+            f'{self.base_url}/meme/{meme_id}', json=full_payload, headers=self.headers
         )
         allure.attach(
             self.response.text,
