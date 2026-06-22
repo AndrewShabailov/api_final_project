@@ -1,6 +1,6 @@
 import pytest
 import requests
-from data.positive_payloads import login_payload  # Имя пользователя 'Andrew' живет тут
+from data.positive_payloads import login_payload
 from endpoints.auth_meme import AuthMeme
 from endpoints.create_meme import CreateMeme
 
