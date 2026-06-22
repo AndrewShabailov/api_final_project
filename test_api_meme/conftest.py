@@ -59,7 +59,7 @@ def read_all_memes_endpoint(auth_token):
 
 @pytest.fixture()
 def delete_meme_endpoint(auth_token):
-    return DeleteMeme(token=auth_token)  # Теперь возвращаем правильный объект
+    return DeleteMeme(token=auth_token)
 
 
 @pytest.fixture()

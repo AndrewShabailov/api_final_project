@@ -1,5 +1,7 @@
 import pytest
 from data.positive_payloads import payload, upd_payload
+from endpoints.auth_meme import AuthMeme
+from data.positive_payloads import login_payload
 
 
 @pytest.mark.positive
@@ -19,7 +21,6 @@ def test_get_meme(read_meme_endpoint, meme_factory):
 
 @pytest.mark.positive
 def test_token_is_alive(auth_token):
-    from endpoints.auth_meme import AuthMeme
     endpoint = AuthMeme(token=auth_token)
     endpoint.check_token_alive(auth_token)
     endpoint.check_status_code_is(200)
@@ -27,7 +28,6 @@ def test_token_is_alive(auth_token):
 
 @pytest.mark.positive
 def test_login(auth_endpoint):
-    from data.positive_payloads import login_payload
     auth_endpoint.login(login_payload)
     auth_endpoint.check_status_code_is(200)
 
