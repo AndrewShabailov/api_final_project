@@ -1,5 +1,4 @@
 import pytest
-from endpoints.read_meme import ReadMeme
 from endpoints.auth_meme import AuthMeme
 from data import negative_payloads as bad
 
