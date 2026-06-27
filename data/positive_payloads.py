@@ -45,3 +45,37 @@ upd_payload = {
 login_payload = {
     'name': 'Andrew Shabailov'
 }
+
+minimal_payload = {
+    "text": "One does not simply walk into Mordor.",
+    "url": "https://i.imgflip.com/1bij.jpg",
+    "tags": ["lotr"],
+    "info": {"source": "imgflip"}
+}
+
+extra_payload = {
+    "text": "I should buy a boat.",
+    "url": "https://i.imgflip.com/9ehk.jpg",
+    "tags": ["cat", "funny", "meme"],
+    "info": {
+        "type": "jpg",
+        "platform": "imgflip",
+        "context": "Classic cat meme about life decisions",
+        "text_format": "impact"
+    }
+}
+
+parametrized_payloads = [
+    (
+        payload,
+        "birthday meme"
+    ),
+    (
+        minimal_payload,
+        "minimal payload meme"
+    ),
+    (
+        extra_payload,
+        "extra payload meme"
+    ),
+]
